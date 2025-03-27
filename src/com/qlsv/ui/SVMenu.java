@@ -3,11 +3,14 @@ package com.qlsv.ui;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import com.qlsv.control.SVControlAdd;
+
 public class SVMenu {
 
 	PrintWriter out;
 	Scanner in;
 	String prompt;
+	private SVControlAdd svControlAdd;
 
 	public SVMenu() {
 	}
@@ -24,6 +27,12 @@ public class SVMenu {
 		this.out /* field */ = out /* tham số */;
 		this.in = in;
 		this.prompt = prompt;
+	}
+	
+	public SVMenu(PrintWriter out, Scanner in, String prompt, 
+			SVControlAdd svControlAdd) {
+		this(out, in, prompt);
+		this.svControlAdd = svControlAdd;
 	}
 
 	public void controlLoop() {
@@ -43,9 +52,18 @@ public class SVMenu {
 				help();
 				continue;
 			}
+			
+			if("add".equalsIgnoreCase(command)) {
+				add();
+			}
 		}
 	}
 	
+	private void add() {
+		// TODO Auto-generated method stub
+		svControlAdd.add();
+	}
+
 	private void help() {
 		//code
 		out.println("~~~~~~~~User Help Menu~~~~~~~~");
