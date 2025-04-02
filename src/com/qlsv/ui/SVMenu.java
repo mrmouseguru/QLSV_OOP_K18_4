@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 import com.qlsv.control.SVControlAdd;
+import com.qlsv.control.SVControlPrint;
 
 public class SVMenu {
 
@@ -11,6 +12,11 @@ public class SVMenu {
 	Scanner in;
 	String prompt;
 	private SVControlAdd svControlAdd;
+	private SVControlPrint svControlPrint;
+	
+	public void setSVControlPrint(SVControlPrint svControlPrint) {
+		this.svControlPrint = svControlPrint;
+	}
 
 	public SVMenu() {
 	}
@@ -55,10 +61,22 @@ public class SVMenu {
 			
 			if("add".equalsIgnoreCase(command)) {
 				add();
+				continue;
+			}
+			
+			if("pAll".equalsIgnoreCase(command)) {
+				printAllSV();
+				continue;
 			}
 		}
 	}
 	
+	private void printAllSV() {
+		// TODO Auto-generated method stub
+		//gửi thông điệp đến đối tượng SVControlPrint
+		svControlPrint.printAllSV();
+	}
+
 	private void add() {
 		// TODO Auto-generated method stub
 		svControlAdd.add();
