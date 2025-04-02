@@ -9,6 +9,19 @@ public class SinhVien {
 	private String nganh;
 	private Date ngaySinh;
 	
+	//getter
+	public int getMaSV() {
+		return this.maSV;
+	}
+	
+	public String getHoTen() {
+		return this.hoTen;
+	}
+	
+	public String getNganh() {
+		return this.nganh;
+	}
+	
 	protected SinhVien() {}
 	
 	protected SinhVien(int maSV, String hoTen, String nganh, Date ngaySinh) {
@@ -18,11 +31,11 @@ public class SinhVien {
 		this.ngaySinh = ngaySinh;
 	}
 	
-	protected double tinhDiem() {
+	public double tinhDiem() {
 		return 0;
 	}
 	
-	protected String tinhHocLuc() {
+	public String tinhHocLuc() {
 		
 		double diemTB = tinhDiem();
 		if (diemTB < 5) {

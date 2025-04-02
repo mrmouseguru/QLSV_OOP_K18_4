@@ -9,26 +9,27 @@ import com.qlsv.entity.SinhVienKT;
 import com.qlsv.entity.SinhVienPM;
 
 public class SVInAdd {
-	
+
 	private PrintWriter out;
 	private Scanner in;
+
 	public SVInAdd() {
 	}
-	
+
 	public SVInAdd(PrintWriter out, Scanner in) {
 		this.out = out;
 		this.in = in;
 	}
-	
+
 	public SinhVien input() {
-		
+
 		int maSV;
 		String hoTen;
 		String nganh;
 		Date ngaySinhJava;
 		String ngaySinh;
 		SinhVien sv = null;
-		
+
 		out.print("[MÃ SINH VIÊN]:");
 		out.flush();
 		maSV = in.nextInt();
@@ -41,27 +42,26 @@ public class SVInAdd {
 		out.flush();
 
 		ngaySinh = in.nextLine();
-		//chuyen ngay kieu chuoi
-		//thanh ngay kieu Java
+		// chuyen ngay kieu chuoi
+		// thanh ngay kieu Java
 		out.print("[NGANH HOC \"KT\" / \"PM\"]:");
 		out.flush();
 
 		nganh = in.nextLine();
-		//kiem tra xem user nhap nganh gi?
-		if("KT".equalsIgnoreCase(nganh)) {
+		// kiem tra xem user nhap nganh gi?
+		if ("KT".equalsIgnoreCase(nganh)) {
 			sv = inputSVKT(maSV, hoTen, "KT", null);
 		}
-		
-		if("PM".equalsIgnoreCase(nganh)) {
+
+		if ("PM".equalsIgnoreCase(nganh)) {
 			sv = inputSVPM(maSV, hoTen, nganh, null);
 		}
-		
+
 		return sv;
-		
+
 	}
-	
-	private SinhVien inputSVKT(int maSV, String hoTen, String nganh,
-			Date ngaySinh) {
+
+	private SinhVien inputSVKT(int maSV, String hoTen, String nganh, Date ngaySinh) {
 		double diemMarketing;
 		double diemSale;
 
@@ -69,34 +69,37 @@ public class SVInAdd {
 		out.flush();
 
 		diemMarketing = in.nextDouble();
-		
+
 		out.print("[DIEM SALES]:");
 		out.flush();
 
 		diemSale = in.nextDouble();
-		
-		SinhVienKT svKT = new SinhVienKT(maSV, hoTen, 
-				nganh, ngaySinh,
-				diemMarketing, diemSale);
-		
-		
+
+		SinhVienKT svKT = new SinhVienKT(maSV, hoTen, nganh, ngaySinh, diemMarketing, diemSale);
+
 		return svKT;
-		
+
 	}
-	
-	private SinhVien inputSVPM(int maSV, String hoTen, String nganh,
-			Date ngaySinh) {
-		//điêm java
-		//điểm css
-		//điểm html
-		SinhVienPM svPM = new SinhVienPM(maSV, hoTen, nganh, ngaySinh
-				, maSV, maSV, maSV);
+
+	private SinhVien inputSVPM(int maSV, String hoTen, String nganh, Date ngaySinh) {
+		// điêm java
+		// điểm css
+		// điểm html
+		double diemJava, diemCss, diemHtml;
+		// nhập thông tin phân mềm
+		// nhập vào htong thin sinh viên phần mềm
+		out.print("[ĐIỂM JAVA]:");
+		out.flush();
+		diemJava = in.nextDouble();
+		out.print("[ĐIỂM CSS]:");
+		out.flush();
+		diemCss = in.nextDouble();
+		out.print("[ĐIỂM HTML]:");
+		out.flush();
+		diemHtml = in.nextDouble();
+		SinhVienPM svPM = new SinhVienPM(maSV, hoTen, nganh, ngaySinh, maSV, maSV, maSV);
 		return svPM;
-		
+
 	}
-	
-	
-	
-	
 
 }

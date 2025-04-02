@@ -21,8 +21,13 @@ public class SVControlAdd {
 	
 	public void add() {
 		SinhVien sv;
+		//1. gửi thông điệp  đến đối tượng SVInAdd
 		sv = svInAdd.input();//nhâp liệu
+		//2. gửi thông điệp đến đối tượng SVAddDAO
 		svAddDAO.insert(sv);
+		
+		//.3 gửi thông điệp đến đối tượng SVOutAdd
+		svOutAdd.showMessage(sv);
 	}
 	
 	
