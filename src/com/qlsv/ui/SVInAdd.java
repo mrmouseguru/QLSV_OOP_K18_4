@@ -97,7 +97,8 @@ public class SVInAdd {
 		out.print("[ĐIỂM HTML]:");
 		out.flush();
 		diemHtml = in.nextDouble();
-		SinhVienPM svPM = new SinhVienPM(maSV, hoTen, nganh, ngaySinh, maSV, maSV, maSV);
+		SinhVienPM svPM = new SinhVienPM(maSV, hoTen, nganh, ngaySinh,
+				diemJava, diemCss, diemHtml);
 		return svPM;
 
 	}

@@ -34,6 +34,17 @@ public class SinhVienPM extends SinhVien{
 		return (2 * diemJava + diemHtml + diemCss) / 4;
 	}
 	
+	public double getDiemJava() {
+		return this.diemJava;
+	}
+	
+	public double getDiemCss() {
+		return this.diemCss;
+	}
+	
+	public double getDiemHtml() {
+		return this.diemHtml;
+	}
 	
 	
 	
