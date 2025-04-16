@@ -11,7 +11,7 @@ public class DemoException {
 			result = a / 0;
 		}
 		
-		catch(ArithmeticException arithmeticException) {
+		catch(Exception arithmeticException) {
 			System.out.println("Lỗi chia cho 0"
 					+ arithmeticException.getMessage());
 			

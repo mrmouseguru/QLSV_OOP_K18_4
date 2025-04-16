@@ -6,6 +6,7 @@ import com.qlsv.ui.SVInAdd;
 import com.qlsv.ui.SVOutAdd;
 
 public class SVControlAdd {
+	//private MemorySVAddDAO svAddDAO;
 	private SVAddDAO svAddDAO;
 	private SVOutAdd svOutAdd;
 	private SVInAdd svInAdd;

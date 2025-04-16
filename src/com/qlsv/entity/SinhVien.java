@@ -1,8 +1,9 @@
 package com.qlsv.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class SinhVien {
+public abstract class SinhVien implements Serializable{
 	
 	private int maSV;
 	private String hoTen;
@@ -31,9 +32,12 @@ public class SinhVien {
 		this.ngaySinh = ngaySinh;
 	}
 	
-	public double tinhDiem() {
-		return 0;
-	}
+	public abstract double tinhDiem();
+	
+	//body
+//	{
+//		return 0;
+//	}
 	
 	public String tinhHocLuc() {
 		
@@ -49,6 +53,13 @@ public class SinhVien {
         } else {
             return "Xuất sắc";
         }
+		
+	}
+	
+	public static void main(String[] args) {
+		//new SinhVien(0, null, null, null);
+		new SinhVienKT(0, null, null, null, 0, 0);
+		new SinhVienPM(0, null, null, null, 0, 0, 0);
 		
 	}
 	
