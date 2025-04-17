@@ -6,8 +6,9 @@ import java.util.Scanner;
 import com.qlsv.control.SVControlAdd;
 import com.qlsv.control.SVControlPrint;
 import com.qlsv.database.FileSVAddDAO;
+import com.qlsv.database.FileSVPrintDAO;
 import com.qlsv.database.MemorySVAddDAO;
-import com.qlsv.database.SVPrintDAO;
+import com.qlsv.database.MemorySVPrintDAO;
 import com.qlsv.ui.SVInAdd;
 import com.qlsv.ui.SVMenu;
 import com.qlsv.ui.SVOutAdd;
@@ -27,7 +28,8 @@ public class AppQLSV {
 		FileSVAddDAO fileSVAddDAO;
 		SVOutAdd svOutAdd;
 		SVControlPrint svControlPrint;
-		SVPrintDAO svPrintDAO;
+		//MemorySVPrintDAO svPrintDAO;
+		FileSVPrintDAO fileSVPrintDAO;
 		SVOutPrint svOutPrint;
 		
 		
@@ -39,9 +41,10 @@ public class AppQLSV {
 		//svAddDAO = new MemorySVAddDAO();
 		fileSVAddDAO = new FileSVAddDAO();
 		svOutAdd = new SVOutAdd(out);
-		svPrintDAO = new SVPrintDAO();
+		//svPrintDAO = new MemorySVPrintDAO();
+		fileSVPrintDAO = new FileSVPrintDAO();
 		svOutPrint = new SVOutPrint(out);
-		svControlPrint =  new SVControlPrint(svPrintDAO, svOutPrint);
+		svControlPrint =  new SVControlPrint(fileSVPrintDAO, svOutPrint);
 		svControlAdd = new SVControlAdd(fileSVAddDAO, svOutAdd, svInAdd);
 				
 		//menu =    new SVMenu(out, in, prompt);
