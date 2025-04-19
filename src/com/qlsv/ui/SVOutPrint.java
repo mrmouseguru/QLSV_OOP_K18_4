@@ -1,7 +1,9 @@
 package com.qlsv.ui;
 
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.qlsv.database.MemorySVDB;
 import com.qlsv.entity.SinhVien;
@@ -24,10 +26,18 @@ public class SVOutPrint {
 					sinhVien.getMaSV(),
 					sinhVien.getHoTen(), 
 					sinhVien.getNganh(),
-					"???", sinhVien.tinhDiem(), 
+					convertDatetoString(sinhVien.getNgaySinh()), //java.util.Date
+					sinhVien.tinhDiem(), 
 					sinhVien.tinhHocLuc());
 			out.flush();
 		}
+	}
+	
+	private String convertDatetoString(Date date) {
+		String ngaySinh = null;
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		ngaySinh =  dateFormat.format(date);
+		return ngaySinh;
 	}
 	
 	public static void main(String[] args) {

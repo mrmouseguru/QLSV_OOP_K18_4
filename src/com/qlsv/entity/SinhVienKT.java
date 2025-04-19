@@ -19,17 +19,12 @@ public class SinhVienKT extends SinhVien{
 		this.diemSale = diemSale;
 	}
 
+	
 	@Override
 	public double tinhDiem() {
 		// TODO Auto-generated method stub
-		return 0;
+		return (2 * diemMarketing + diemSale) / 3;
 	}
-	
-//	@Override
-//	public double tinhDiem() {
-//		// TODO Auto-generated method stub
-//		return (2 * diemMarketing + diemSale) / 3;
-//	}
 	
 	
 	

@@ -1,6 +1,8 @@
 package com.qlsv.ui;
 
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -44,21 +46,38 @@ public class SVInAdd {
 		ngaySinh = in.nextLine();
 		// chuyen ngay kieu chuoi
 		// thanh ngay kieu Java
+		ngaySinhJava = convertStringtoDate(ngaySinh);
+		
 		out.print("[NGANH HOC \"KT\" / \"PM\"]:");
 		out.flush();
 
 		nganh = in.nextLine();
 		// kiem tra xem user nhap nganh gi?
 		if ("KT".equalsIgnoreCase(nganh)) {
-			sv = inputSVKT(maSV, hoTen, "KT", null);
+			sv = inputSVKT(maSV, hoTen, "KT", ngaySinhJava);
 		}
 
 		if ("PM".equalsIgnoreCase(nganh)) {
-			sv = inputSVPM(maSV, hoTen, nganh, null);
+			sv = inputSVPM(maSV, hoTen, nganh, ngaySinhJava);
 		}
 
 		return sv;
 
+	}
+	
+	
+	private Date convertStringtoDate(String date) {
+		Date ngaySinhJava = null;
+		SimpleDateFormat dateFormat;
+		dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			ngaySinhJava =  dateFormat.parse(date);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return ngaySinhJava;
 	}
 
 	private SinhVien inputSVKT(int maSV, String hoTen, String nganh, Date ngaySinh) {

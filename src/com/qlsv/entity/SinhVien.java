@@ -10,6 +10,10 @@ public abstract class SinhVien implements Serializable{
 	private String nganh;
 	private Date ngaySinh;
 	
+	public void setHoTen(String newName) {
+		hoTen = newName;
+	}
+	
 	//getter
 	public int getMaSV() {
 		return this.maSV;
@@ -21,6 +25,10 @@ public abstract class SinhVien implements Serializable{
 	
 	public String getNganh() {
 		return this.nganh;
+	}
+	
+	public Date getNgaySinh() {
+		return this.ngaySinh;
 	}
 	
 	protected SinhVien() {}
